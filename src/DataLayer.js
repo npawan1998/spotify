@@ -1,0 +1,11 @@
+//context API
+import React, { createContext, useContext, useReducer } from "react";
+
+export const DataLayerContext = createContext();
+
+export const DataLayer = ({ initialstate,reducer,children }) => (
+    <DataLayerContext.Provider value  = {useReducer(reducer,initialstate)} >
+    {children}
+    </DataLayerContext.Provider>
+);
+export const useDataLayerValue = () => useContext(DataLayerContext); //to get access outside this 
